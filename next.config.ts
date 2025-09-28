@@ -1,7 +1,8 @@
-import type { NextConfig } from "next";
+import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  // Turbopack не требует webpack конфигурации для SVG
+  // SVG компоненты создаются вручную как React компоненты
 };
 
 export default nextConfig;
