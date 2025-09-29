@@ -1,14 +1,24 @@
+'use client'
+
 import { Button, Htag, P, Tag } from "@/components";
-import { JSX } from "react";
-import React from "react";
+
+import React, {useState, JSX, useEffect} from "react";
 
 
 
 export default function Home(): JSX.Element {
+    const [counter, setCounter] = useState<number>(0);
+
+    useEffect(() => {
+        console.log("counter" + counter);
+        return function cleanup() {
+            console.log("Unmount");
+        }
+    })
   return (
     <>
-      <Htag tag='h1'>Текст</Htag>
-      <Button appearance='primary' arrow='right'>Кнопка</Button>
+      <Htag tag='h1'>{counter}</Htag>
+      <Button appearance='primary' arrow='right' onClick={() => setCounter(x => x +1)}>Кнопка</Button>
       <Button appearance='ghost' arrow='down'>Кнопка 2</Button>
       <P size='small'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cupiditate beatae aliquid iusto, commodi facilis voluptate rem illo ipsam voluptatibus ab.</P>
       <P size='medium'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ratione expedita excepturi distinctio debitis dignissimos! Quas repudiandae praesentium adipisci unde laboriosam reprehenderit nobis vel doloremque cum.</P>
